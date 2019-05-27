@@ -1,0 +1,32 @@
+{% with mensajes = get_flashed_messages() %}
+{% if mensajes %}
+{% for mensaje in mensajes %}
+    <p>{{ mensaje }}</p>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<form action="/crear_equipo" method="POST">
+
+    <input type="text" name="nombre" placeholder="nombre">
+    <textarea name="desc_equipo" placeholder="descripción" rows="10" cols="30"></textarea>
+    <button type="submit">
+        Guardar
+    </button>
+
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <td>Nombre</td>
+            <td>Descripción</td>
+            <td>Operaciones</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for equipo in equipos %}
+            <td>{{ equipo['nombre'] }}</td>
+        {% endfor %}
+    </tbody>
+</table>
