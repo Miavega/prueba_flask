@@ -1,7 +1,7 @@
 {% with mensajes = get_flashed_messages() %}
 {% if mensajes %}
 {% for mensaje in mensajes %}
-    <p>{{ mensaje }}</p>
+<p>{{ mensaje }}</p>
 {% endfor %}
 {% endif %}
 {% endwith %}
@@ -26,7 +26,14 @@
     </thead>
     <tbody>
         {% for equipo in equipos %}
-            <td>{{ equipo['nombre'] }}</td>
+        <tr>
+            <td>{{ equipo.nombre }}</td>
+            <td>{{ equipo.desc_equipo }}</td>
+            <td>
+                <a href="/modificar_equipo/{{ equipo.id }}">Editar</a>
+                <a href="/borrar_equipo/{{ equipo.id }}">Borrar</a>
+            </td>
+        </tr>
         {% endfor %}
     </tbody>
 </table>
